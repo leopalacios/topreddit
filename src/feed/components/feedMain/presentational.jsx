@@ -1,11 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Detail from '../detail';
+import List from '../list';
 
 import { StyleTest } from './styled';
 
 const Feed = ({ test }) => {
   return (
-    <StyleTest>--{ test }----</StyleTest>
+    <div>
+      <StyleTest>--{ test }----</StyleTest>
+      <Detail/>
+      <List/>
+    </div>
   );
 };
 
