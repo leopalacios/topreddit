@@ -8,9 +8,8 @@ import { StyleTest } from './styled';
 const Feed = ({ test }) => {
   return (
     <div>
-      <StyleTest>--{ test }----</StyleTest>
-      <Detail/>
       <List/>
+      <Detail/>
     </div>
   );
 };
