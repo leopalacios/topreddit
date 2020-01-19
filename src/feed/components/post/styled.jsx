@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { COLORS, SIZES, FONT_SIZES } from '../../../utils/css-constants';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 
 export const StyledFlexCenteredDiv = styled.div`
   display: flex;
@@ -10,6 +11,10 @@ export const StyledFlexCenteredDiv = styled.div`
 export const StyledCloseIcon = styled(HighlightOffIcon)`
   color: ${ COLORS.ORANGE };
   margin-right: ${ SIZES.XXS };
+`;
+
+export const StyledNextIcon = styled(NavigateNextIcon)`
+  margin-left: ${ SIZES.XS };
 `;
 
 export const StyledPostTitle = styled(StyledFlexCenteredDiv)`
@@ -28,7 +33,7 @@ export const StyledComments = styled(StyledFlexCenteredDiv)`
 `;
 
 export const StyledPostFooter = styled.div`
-  height: 60px;
+  height: 40px;
   display: flex;
   justify-content: space-around;
 `;
@@ -53,4 +58,13 @@ export const StyledPostContainer = styled.div`
 export const StyledThumbnail = styled.img`
   height: 100px;
   width: 100px;
+`;
+
+export const StyledDismissPost = styled(StyledFlexCenteredDiv)`
+  cursor: pointer;
+`;
+
+export const StyledPostListText = styled.div`
+  flex: 1;
+  margin-left: ${ SIZES.S };
 `;

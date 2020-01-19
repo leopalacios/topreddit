@@ -13,7 +13,7 @@ const Detail = ({ post }) => {
 };
 
 Detail.propTypes = {
-  post: PostShape,
+  // post: PostShape,
 };
 
 export default Detail;

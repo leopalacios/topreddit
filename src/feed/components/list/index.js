@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Feed from './presentational';
+import List from './presentational';
 import { getPostList } from "../../actions";
 
 const actions = {
@@ -7,11 +7,11 @@ const actions = {
 };
 
 const mapStateToProps = (state) => {
-  const { test } = state.feed;
+  const { posts } = state.feed;
 
   return {
-    test,
+    posts,
   };
 };
 
-export default connect(mapStateToProps, actions)(Feed);
+export default connect(mapStateToProps, actions)(List);

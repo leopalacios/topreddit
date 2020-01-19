@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import { PostShape } from '../../propTypes';
 import * as strings from './strings';
 import {
@@ -11,11 +10,15 @@ import {
   StyledComments,
   StyledCloseIcon,
   StyledAuthor,
-  StyledFlexCenteredDiv,
   StyledReadPostIcon,
   StyledPostContainer,
   StyledThumbnail,
+  StyledPostListText,
+  StyledNextIcon,
+  StyledDismissPost,
 } from './styled';
+
+const ELLIPSIS_THRESHOLD = 100;
 
 const Post = ({ post, onDismissPost, onExpandPost }) => {
   const {
@@ -28,6 +31,7 @@ const Post = ({ post, onDismissPost, onExpandPost }) => {
   } = post;
 
   const postTime = moment.unix(created_utc).fromNow();
+  const ellipsedText = title.length > ELLIPSIS_THRESHOLD ? title.substring(0,ELLIPSIS_THRESHOLD - 1) + "..." : title;
 
   return (
     <StyledPostContainer>
@@ -37,14 +41,14 @@ const Post = ({ post, onDismissPost, onExpandPost }) => {
         { postTime }
       </StyledPostTitle>
       <StyledPostBody onClick={() => onExpandPost(id)}>
-        <StyledThumbnail src={thumbnail} />
-        { title }
-        <NavigateNextIcon />
+        { thumbnail && <StyledThumbnail src={thumbnail} /> }
+        <StyledPostListText>{ ellipsedText }</StyledPostListText>
+        <StyledNextIcon />
       </StyledPostBody>
       <StyledPostFooter>
-        <StyledFlexCenteredDiv onClick={() => onDismissPost(id)}>
+        <StyledDismissPost onClick={() => onDismissPost(id)}>
           <StyledCloseIcon />{strings.DISMISS_POST }
-        </StyledFlexCenteredDiv>
+        </StyledDismissPost>
         <StyledComments>{ num_comments } {strings.COMMENTS }</StyledComments>
       </StyledPostFooter>
     </StyledPostContainer>

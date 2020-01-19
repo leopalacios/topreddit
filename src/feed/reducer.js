@@ -1,13 +1,14 @@
 import { handleActions } from 'redux-actions';
 
 const DEFAULT_STATE = {
-  test: 'test',
+  posts: [],
 };
 
 export default handleActions(
   {
-    SOME_COOL_ACTION: (state) => ({
+    POSTS_RESPONSE: (state, { payload }) => ({
       ...state,
+      posts: payload.data.data.children,
     }),
   },
   DEFAULT_STATE,
