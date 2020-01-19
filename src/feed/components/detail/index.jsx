@@ -1,9 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {
+  StyledDetailWrapper,
+} from './styled';
 
 const Detail = ({ test }) => {
   return (
-    <div>detail</div>
+    <StyledDetailWrapper>
+      detail
+    </StyledDetailWrapper>
   );
 };
 

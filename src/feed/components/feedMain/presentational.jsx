@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import Detail from '../detail';
 import List from '../list';
 
-import { StyleTest } from './styled';
+import { StyledMainContainer } from './styled';
 
 const Feed = ({ test }) => {
   return (
-    <div>
+    <StyledMainContainer>
       <List/>
       <Detail/>
-    </div>
+    </StyledMainContainer>
   );
 };
 

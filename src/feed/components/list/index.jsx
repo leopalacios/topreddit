@@ -2,6 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as strings from './strings';
 import Post from '../post';
+import {
+  StyledListWrapper,
+  StyledListTitle,
+  StyledTitle,
+} from './styled';
 
 const mockPost = {
   "kind": "t3",
@@ -54,10 +59,12 @@ const mockPost = {
 
 const List = ({ test }) => {
   return (
-    <div>
-      <div>{ strings.LIST_TITLE }</div>
+    <StyledListWrapper>
+      <StyledListTitle>
+        <StyledTitle>{ strings.LIST_TITLE }</StyledTitle>
+      </StyledListTitle>
       <Post post={ mockPost.data } />
-    </div>
+    </StyledListWrapper>
   );
 };
 
