@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { COLORS } from '../../../utils/css-constants';
+import { COLORS, SIZES, FONT_SIZES } from '../../../utils/css-constants';
 
 export const StyledListWrapper = styled.div`
-  max-width: 40%;
+  width: 400px;
   background-color: ${ COLORS.BLACK };
   color: ${ COLORS.WHITE };
 `;
@@ -10,12 +10,12 @@ export const StyledListWrapper = styled.div`
 export const StyledListTitle = styled.div`
   background-color: ${ COLORS.DARK_GREY };
   height: 70px;
-  text-align: center;
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  font-size: ${ FONT_SIZES.L };
 `;
 
 export const StyledTitle = styled.div`
-  margin-bottom: 10px;
+  margin-bottom: ${ SIZES.S };
 `;

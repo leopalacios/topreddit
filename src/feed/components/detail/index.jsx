@@ -1,19 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { PostShape } from '../../propTypes';
 import {
   StyledDetailWrapper,
 } from './styled';
 
-const Detail = ({ test }) => {
+const Detail = ({ post }) => {
   return (
     <StyledDetailWrapper>
-      detail
+
     </StyledDetailWrapper>
   );
 };
 
 Detail.propTypes = {
-  test: PropTypes.string,
+  post: PostShape,
 };
 
 export default Detail;

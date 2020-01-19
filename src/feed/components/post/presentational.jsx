@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import { PostShape } from '../../propTypes';
 import * as strings from './strings';
 import {
   StyledPostTitle,
@@ -10,10 +11,13 @@ import {
   StyledComments,
   StyledCloseIcon,
   StyledAuthor,
-  StyledCloseButton,
+  StyledFlexCenteredDiv,
+  StyledReadPostIcon,
+  StyledPostContainer,
+  StyledThumbnail,
 } from './styled';
 
-const Post = ({ post, onDismissPost }) => {
+const Post = ({ post, onDismissPost, onExpandPost }) => {
   const {
     id,
     author,
@@ -26,30 +30,26 @@ const Post = ({ post, onDismissPost }) => {
   const postTime = moment.unix(created_utc).fromNow();
 
   return (
-    <div>
+    <StyledPostContainer>
       <StyledPostTitle>
+        <StyledReadPostIcon />
         <StyledAuthor>{ author }</StyledAuthor>
         { postTime }
       </StyledPostTitle>
-      <StyledPostBody><img src={thumbnail} />{ title }<NavigateNextIcon /></StyledPostBody>
+      <StyledPostBody onClick={() => onExpandPost(id)}>
+        <StyledThumbnail src={thumbnail} />
+        { title }
+        <NavigateNextIcon />
+      </StyledPostBody>
       <StyledPostFooter>
-        <StyledCloseButton onClick={() => onDismissPost(id)}>
+        <StyledFlexCenteredDiv onClick={() => onDismissPost(id)}>
           <StyledCloseIcon />{strings.DISMISS_POST }
-        </StyledCloseButton>
+        </StyledFlexCenteredDiv>
         <StyledComments>{ num_comments } {strings.COMMENTS }</StyledComments>
       </StyledPostFooter>
-    </div>
+    </StyledPostContainer>
   );
 };
-
-export const PostShape = PropTypes.shape({
-  id: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
-  created_utc: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  thumbnail: PropTypes.string,
-  num_comments: PropTypes.number.isRequired,
-}).isRequired;
 
 Post.propTypes = {
   post: PostShape,

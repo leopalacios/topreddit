@@ -1,20 +1,30 @@
 import styled from 'styled-components';
-import { COLORS } from '../../../utils/css-constants';
+import { COLORS, SIZES, FONT_SIZES } from '../../../utils/css-constants';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
-export const StyledCloseIcon = styled(HighlightOffIcon)({
-  color: COLORS.ORANGE,
-});
-
-export const StyledPostTitle = styled.div`
-  align-items: center;
-  height: 40px;
-  text-align: center;
+export const StyledFlexCenteredDiv = styled.div`
   display: flex;
+  align-items: center;
 `;
 
-export const StyledPostBody = styled.div`
+export const StyledCloseIcon = styled(HighlightOffIcon)`
+  color: ${ COLORS.ORANGE };
+  margin-right: ${ SIZES.XXS };
+`;
+
+export const StyledPostTitle = styled(StyledFlexCenteredDiv)`
+  height: 40px;
+  text-align: center;
+`;
+
+export const StyledPostBody = styled(StyledFlexCenteredDiv)`
+  cursor: pointer;
   height: 150px;
+  justify-content: space-around;
+`;
+
+export const StyledComments = styled(StyledFlexCenteredDiv)`
+  color: ${COLORS.ORANGE};
 `;
 
 export const StyledPostFooter = styled.div`
@@ -23,18 +33,24 @@ export const StyledPostFooter = styled.div`
   justify-content: space-around;
 `;
 
-export const StyledComments = styled.div`
-  display: flex;
-  align-items: center;
-  color: ${COLORS.ORANGE};
-`;
-
 export const StyledAuthor = styled.span`
-  margin-right: 4px;
-  font-size: 20px;
+  margin: 0 ${ SIZES.XXS } 0 ${ SIZES.XS };
+  font-size: ${ FONT_SIZES.M }
 `;
 
-export const StyledCloseButton = styled.span`
-  display: flex;
-  align-items: center;
+export const StyledReadPostIcon = styled.div`
+  height: 12px;
+  width: 12px;
+  background-color: blue;
+  border-radius: 100%;
+  margin-left: ${ SIZES.XS };
+`;
+
+export const StyledPostContainer = styled.div`
+  padding: ${ SIZES.XS };
+`;
+
+export const StyledThumbnail = styled.img`
+  height: 100px;
+  width: 100px;
 `;
