@@ -7,4 +7,12 @@ export const PostShape = PropTypes.shape({
   title: PropTypes.string.isRequired,
   thumbnail: PropTypes.string,
   num_comments: PropTypes.number.isRequired,
-}).isRequired;
+  is_read: PropTypes.bool.isRequired,
+});
+
+export const EmptyShape = PropTypes.shape({});
+
+export const Nullable = types => PropTypes.oneOfType([
+  PropTypes.oneOf([null]),
+  ...[].concat(types),
+]);

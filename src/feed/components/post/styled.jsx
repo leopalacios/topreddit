@@ -1,12 +1,8 @@
 import styled from 'styled-components';
 import { COLORS, SIZES, FONT_SIZES } from '../../../utils/css-constants';
+import { StyledFlexCenteredDiv } from '../../../utils/base-styled';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-
-export const StyledFlexCenteredDiv = styled.div`
-  display: flex;
-  align-items: center;
-`;
 
 export const StyledCloseIcon = styled(HighlightOffIcon)`
   color: ${ COLORS.ORANGE };

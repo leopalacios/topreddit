@@ -1,9 +1,11 @@
 import { connect } from 'react-redux';
 import List from './presentational';
-import { getPostList } from "../../actions";
+import { getPostList, dismissPost, expandPost } from "../../actions";
 
 const actions = {
   onGetPostList: getPostList,
+  onDismissPost: dismissPost,
+  onExpandPost: expandPost,
 };
 
 const mapStateToProps = (state) => {

@@ -28,6 +28,7 @@ const Post = ({ post, onDismissPost, onExpandPost }) => {
     title,
     thumbnail,
     num_comments,
+    is_read,
   } = post;
 
   const postTime = moment.unix(created_utc).fromNow();
@@ -36,7 +37,7 @@ const Post = ({ post, onDismissPost, onExpandPost }) => {
   return (
     <StyledPostContainer>
       <StyledPostTitle>
-        <StyledReadPostIcon />
+        { !is_read && <StyledReadPostIcon /> }
         <StyledAuthor>{ author }</StyledAuthor>
         { postTime }
       </StyledPostTitle>
