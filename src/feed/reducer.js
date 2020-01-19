@@ -9,6 +9,7 @@ const DEFAULT_STATE = {
 export default handleActions(
   {
     POSTS_RESPONSE: (state, { payload }) => {
+      const previousPosts = [ ...state.posts ];
       const posts = (payload.data.data.children || [])
         .map(post => ({
           ...post,
@@ -20,7 +21,7 @@ export default handleActions(
 
       return ({
         ...state,
-        posts,
+        posts: previousPosts.concat(posts),
         isLoading: false,
       });
     },

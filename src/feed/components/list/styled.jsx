@@ -47,3 +47,7 @@ export const StyledScrollable = styled.div`
   bottom: 0;
   overflow: auto;
 `;
+
+export const StyledLoadingMore = styled.div`
+  text-align: center;
+`;

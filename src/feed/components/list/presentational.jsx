@@ -11,6 +11,7 @@ import {
   StyledDismissButton,
   StyledPostsContainer,
   StyledScrollable,
+  StyledLoadingMore,
 } from './styled';
 
 class List extends React.Component {
@@ -18,6 +19,7 @@ class List extends React.Component {
     super(props);
 
     this.getPostList = this.getPostList.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount() {
@@ -31,13 +33,22 @@ class List extends React.Component {
       <Post
         post={ post.data }
         key={ post.data.id }
-        onDismissPost={ onDismissPost }w
+        onDismissPost={ onDismissPost }
         onExpandPost={ onExpandPost }
       />);
   }
 
+  handleScroll = (e) => {
+    const { isLoading, onGetPostList } = this.props;
+    const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
+
+    if (bottom && !isLoading) {
+      onGetPostList();
+    }
+  }
+
   render() {
-    const { onDismissAll, isLoading } = this.props;
+    const { onDismissAll, isLoading, posts } = this.props;
 
     return (
       <StyledListWrapper>
@@ -46,9 +57,12 @@ class List extends React.Component {
         </StyledListTitle>
         <StyledPostsContainer>
           {
-            isLoading ?
+            isLoading && posts.length === 0 ?
             <CircularProgress />
-            : <StyledScrollable>{ this.getPostList() }</StyledScrollable>
+            : <StyledScrollable onScroll={this.handleScroll}>
+                { this.getPostList() }
+                { isLoading && posts.length ? <StyledLoadingMore><CircularProgress /></StyledLoadingMore> : null }
+              </StyledScrollable>
           }
         </StyledPostsContainer>
         <StyledDismissButton onClick={ onDismissAll }>{ strings.DISMISS_ALL }</StyledDismissButton>
