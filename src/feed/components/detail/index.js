@@ -3,10 +3,10 @@ import Detail from './presentational';
 
 const mapStateToProps = (state) => {
   const { selectedPost, posts } = state.feed;
-  const selectedPostInfo = selectedPost ? posts.find(post => post.data.id === selectedPost) : {};
+  let selectedPostInfo = posts.find(post => post.data.id === selectedPost);
 
   return {
-    post: selectedPostInfo.data,
+    post: selectedPostInfo ? selectedPostInfo.data : null,
   };
 };
 

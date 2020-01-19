@@ -7,6 +7,8 @@ export const SIZES = {
   XXS: '4px',
   XS: '8px',
   S: '12px',
+  M: '16px',
+  L: '20px',
 };
 
 export const COLORS = {

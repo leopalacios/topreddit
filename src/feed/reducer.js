@@ -3,6 +3,7 @@ import { handleActions } from 'redux-actions';
 const DEFAULT_STATE = {
   posts: [],
   selectedPost: '',
+  isLoading: false,
 };
 
 export default handleActions(
@@ -20,6 +21,7 @@ export default handleActions(
       return ({
         ...state,
         posts,
+        isLoading: false,
       });
     },
     EXPAND_POST: (state, { payload: { id } }) => {
@@ -31,6 +33,7 @@ export default handleActions(
       }
 
       return ({
+        isLoading: false,
         posts: updatedPosts,
         selectedPost: id,
       });
@@ -48,6 +51,13 @@ export default handleActions(
         posts: updatedPosts,
       });
     },
+    DISMISS_ALL: () => ({
+      ...DEFAULT_STATE,
+    }),
+    POSTS_REQUEST: (state) => ({
+      ...state,
+      isLoading: true,
+    }),
   },
   DEFAULT_STATE,
 );

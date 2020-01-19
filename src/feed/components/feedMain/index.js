@@ -6,12 +6,4 @@ const actions = {
   onGetPostList: getPostList,
 };
 
-const mapStateToProps = (state) => {
-  const { test } = state.feed;
-
-  return {
-    test,
-  };
-};
-
-export default connect(mapStateToProps, actions)(Feed);
+export default connect(null, actions)(Feed);
