@@ -21,7 +21,7 @@ const ApiMock = {
             children: newChildren,
           },
         });
-      }, 2000);
+      }, 500);
     });
 
     return serviceRequest;

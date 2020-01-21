@@ -16,6 +16,7 @@ import {
   StyledPostListText,
   StyledNextIcon,
   StyledDismissPost,
+  StyledCommentsSection,
 } from './styled';
 
 const ELLIPSIS_THRESHOLD = 100;
@@ -43,8 +44,10 @@ const Post = ({ post, onDismissPost, onExpandPost }) => {
       </StyledPostTitle>
       <StyledPostBody onClick={() => onExpandPost(id)}>
         { thumbnail && <StyledThumbnail src={thumbnail} /> }
-        <StyledPostListText>{ ellipsedText }</StyledPostListText>
-        <StyledNextIcon />
+        <StyledCommentsSection>
+          <StyledPostListText>{ ellipsedText }</StyledPostListText>
+          <StyledNextIcon />
+        </StyledCommentsSection>
       </StyledPostBody>
       <StyledPostFooter>
         <StyledDismissPost onClick={() => onDismissPost(id)}>
