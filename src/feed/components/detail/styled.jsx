@@ -7,10 +7,10 @@ export const StyledDetailWrapper = styled.div`
 `;
 
 export const StyledDetailTitle = styled.div`
-  margin: ${ SIZES.XXL } 0 ${ SIZES.M } ${ SIZES.L };
-  font-size: ${ FONT_SIZES.L };
+  margin: ${SIZES.XXL} 0 ${SIZES.M} ${SIZES.L};
+  font-size: ${FONT_SIZES.L};
   @media ${DEVICES.tablet} {
-     margin-top: ${ SIZES.L };
+     margin-top: ${SIZES.L};
   }
 `;
 
@@ -24,5 +24,5 @@ export const StyledDetailImage = styled.img`
 `;
 
 export const StyledDetailDescription = styled(StyledFlexCenteredDiv)`
-  margin: ${ SIZES.L } 0 ${ SIZES.M } ${ SIZES.M };
+  margin: ${SIZES.L} 0 ${SIZES.M} ${SIZES.M};
 `;

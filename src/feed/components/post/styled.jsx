@@ -1,16 +1,18 @@
 import styled from 'styled-components';
-import { COLORS, SIZES, FONT_SIZES, DEVICES } from '../../../utils/css-constants';
-import { StyledFlexCenteredDiv } from '../../../utils/base-styled';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import {
+  COLORS, SIZES, FONT_SIZES, DEVICES,
+} from '../../../utils/css-constants';
+import { StyledFlexCenteredDiv } from '../../../utils/base-styled';
 
 export const StyledCloseIcon = styled(HighlightOffIcon)`
-  color: ${ COLORS.ORANGE };
-  margin-right: ${ SIZES.XXS };
+  color: ${COLORS.ORANGE};
+  margin-right: ${SIZES.XXS};
 `;
 
 export const StyledNextIcon = styled(NavigateNextIcon)`
-  margin-left: ${ SIZES.XS };
+  margin-left: ${SIZES.XS};
 `;
 
 export const StyledPostTitle = styled(StyledFlexCenteredDiv)`
@@ -26,7 +28,7 @@ export const StyledPostBody = styled(StyledFlexCenteredDiv)`
   cursor: pointer;
   height: 150px;
   justify-content: space-around;
-  margin-top: ${ SIZES.M };
+  margin-top: ${SIZES.M};
   flex-direction: column;
   @media ${DEVICES.tablet} {
      flex-direction: row;
@@ -44,17 +46,17 @@ export const StyledPostFooter = styled.div`
   height: 40px;
   display: flex;
   justify-content: space-around;
-  font-size: ${ FONT_SIZES.XS };
-  margin-top: ${ SIZES.M };
+  font-size: ${FONT_SIZES.XS};
+  margin-top: ${SIZES.M};
   @media ${DEVICES.tablet} {
-     font-size: ${ FONT_SIZES.S };
+     font-size: ${FONT_SIZES.S};
      margin-top: 0;
   }
 `;
 
 export const StyledAuthor = styled.span`
-  margin: 0 ${ SIZES.XXS } 0 ${ SIZES.XS };
-  font-size: ${ FONT_SIZES.M }
+  margin: 0 ${SIZES.XXS} 0 ${SIZES.XS};
+  font-size: ${FONT_SIZES.M}
 `;
 
 export const StyledReadPostIcon = styled.div`
@@ -62,7 +64,7 @@ export const StyledReadPostIcon = styled.div`
   width: 12px;
   background-color: blue;
   border-radius: 100%;
-  margin-left: ${ SIZES.XS };
+  margin-left: ${SIZES.XS};
   ::after {
     content: ".";
     visibility: hidden;
@@ -70,7 +72,7 @@ export const StyledReadPostIcon = styled.div`
 `;
 
 export const StyledPostContainer = styled.div`
-  padding: ${ SIZES.XS };
+  padding: ${SIZES.XS};
   transition: transform 500ms ease-in;
 `;
 
@@ -85,10 +87,9 @@ export const StyledDismissPost = styled(StyledFlexCenteredDiv)`
 
 export const StyledPostListText = styled.div`
   flex: 1;
-  margin-left: ${ SIZES.S };
-  margin-top: ${ SIZES.XS };
+  margin-left: ${SIZES.S};
+  margin-top: ${SIZES.XS};
   @media ${DEVICES.tablet} {
      margin-top: 0;
   }
 `;
-

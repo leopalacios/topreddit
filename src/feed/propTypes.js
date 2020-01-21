@@ -12,7 +12,7 @@ export const PostShape = PropTypes.shape({
 
 export const EmptyShape = PropTypes.shape({});
 
-export const Nullable = types => PropTypes.oneOfType([
+export const Nullable = (types) => PropTypes.oneOfType([
   PropTypes.oneOf([null]),
   ...[].concat(types),
 ]);

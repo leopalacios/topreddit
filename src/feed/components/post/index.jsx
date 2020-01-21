@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
@@ -36,7 +37,7 @@ const Post = ({ post, onDismissPost, onExpandPost }) => {
   } = post;
 
   const postTime = moment.unix(created_utc).fromNow();
-  const ellipsedText = title.length > ELLIPSIS_THRESHOLD ? title.substring(0,ELLIPSIS_THRESHOLD - 1) + "..." : title;
+  const ellipsedText = title.length > ELLIPSIS_THRESHOLD ? `${title.substring(0, ELLIPSIS_THRESHOLD - 1)}...` : title;
 
   const dismissPostsAndAnimate = (e) => {
     e.currentTarget.closest(`.${POST_ANIMATION_CLASS}`).classList.add(POST_FADEOUT_CLASS);
@@ -44,14 +45,14 @@ const Post = ({ post, onDismissPost, onExpandPost }) => {
   };
 
   return (
-    <StyledPostContainer className={ POST_ANIMATION_CLASS }>
+    <StyledPostContainer className={POST_ANIMATION_CLASS}>
       <StyledPostTitle>
         { !is_read && <StyledReadPostIcon /> }
         <StyledAuthor>{ author }</StyledAuthor>
         { postTime }
       </StyledPostTitle>
       <StyledPostBody onClick={() => onExpandPost(id)}>
-        { thumbnail && <StyledThumbnail src={ thumbnail } /> }
+        { thumbnail && <StyledThumbnail src={thumbnail} /> }
         <StyledCommentsSection>
           <StyledPostListText>{ ellipsedText }</StyledPostListText>
           <StyledNextIcon />
@@ -59,17 +60,23 @@ const Post = ({ post, onDismissPost, onExpandPost }) => {
       </StyledPostBody>
       <StyledPostFooter>
         <StyledDismissPost onClick={(e) => dismissPostsAndAnimate(e)}>
-          <StyledCloseIcon />{strings.DISMISS_POST }
+          <StyledCloseIcon />
+          {strings.DISMISS_POST }
         </StyledDismissPost>
-        <StyledComments>{ num_comments } { strings.COMMENTS }</StyledComments>
+        <StyledComments>
+          { num_comments }
+          {' '}
+          { strings.COMMENTS }
+        </StyledComments>
       </StyledPostFooter>
     </StyledPostContainer>
   );
 };
 
 Post.propTypes = {
-  post: PostShape,
+  post: PostShape.isRequired,
   onDismissPost: PropTypes.func.isRequired,
+  onExpandPost: PropTypes.func.isRequired,
 };
 
 export default Post;

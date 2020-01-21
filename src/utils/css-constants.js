@@ -29,7 +29,7 @@ const DEVICES_SIZES = {
   tablet: '768px',
   laptop: '1024px',
   laptopL: '1440px',
-  desktop: '2560px'
+  desktop: '2560px',
 };
 
 export const DEVICES = {
@@ -40,5 +40,5 @@ export const DEVICES = {
   laptop: `(min-width: ${DEVICES_SIZES.laptop})`,
   laptopL: `(min-width: ${DEVICES_SIZES.laptopL})`,
   desktop: `(min-width: ${DEVICES_SIZES.desktop})`,
-  desktopL: `(min-width: ${DEVICES_SIZES.desktop})`
+  desktopL: `(min-width: ${DEVICES_SIZES.desktop})`,
 };

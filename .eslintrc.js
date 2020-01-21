@@ -8,9 +8,18 @@ module.exports = {
   'extends': [
     'airbnb',
   ],
+  globals: {
+    jest: true,
+    shallow: true,
+    render: true,
+    mount: true,
+  },
   'parserOptions': {
     'ecmaFeatures': {
       'jsx': true,
     }
-  }
+  },
+  rules: {
+    'react/jsx-props-no-spreading': ["error", {"custom": "ignore"}],
+  },
 }

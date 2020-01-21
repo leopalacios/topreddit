@@ -1,18 +1,20 @@
 import styled from 'styled-components';
-import { COLORS, SIZES, FONT_SIZES, DEVICES } from '../../../utils/css-constants';
+import {
+  COLORS, SIZES, FONT_SIZES, DEVICES,
+} from '../../../utils/css-constants';
 
 export const StyledListWrapper = styled.div`
   width: 250px;
   min-width: 250px;
-  background-color: ${ COLORS.BLACK };
-  color: ${ COLORS.WHITE };
+  background-color: ${COLORS.BLACK};
+  color: ${COLORS.WHITE};
   flex-grow: 1;
   height: 100%;
   display: flex;
   flex-direction: column;
   position: absolute;
   transition: transform 500ms ease-in;
-  transform: translateX(${props => (props.isListOpen ? '0' : '-100')}%);
+  transform: translateX(${(props) => (props.isListOpen ? '0' : '-100')}%);
   @media ${DEVICES.tablet} {
      position: relative;
      transform: translateX(0);
@@ -21,23 +23,23 @@ export const StyledListWrapper = styled.div`
 `;
 
 export const StyledListTitle = styled.div`
-  background-color: ${ COLORS.DARK_GREY };
+  background-color: ${COLORS.DARK_GREY};
   height: 70px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  font-size: ${ FONT_SIZES.L };
+  font-size: ${FONT_SIZES.L};
 `;
 
 export const StyledTitle = styled.div`
-  margin-bottom: ${ SIZES.S };
+  margin-bottom: ${SIZES.S};
 `;
 
 export const StyledDismissButton = styled.div`
   text-align: center;
-  color: ${ COLORS.ORANGE };
+  color: ${COLORS.ORANGE};
   cursor: pointer;
-  margin: ${ SIZES.S } 0 ${ SIZES.S } 0;
+  margin: ${SIZES.S} 0 ${SIZES.S} 0;
 `;
 
 export const StyledPostsContainer = styled.div`

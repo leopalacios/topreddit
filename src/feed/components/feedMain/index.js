@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Feed from './presentational';
-import { getPostList } from "../../actions";
+import { getPostList } from '../../actions';
 
 const actions = {
   onGetPostList: getPostList,

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import ListIcon from '@material-ui/icons/List';
 import * as strings from './strings';
-import { PostShape, EmptyShape} from '../../propTypes';
+import { PostShape, EmptyShape } from '../../propTypes';
 import Post from '../post';
 import {
   StyledListWrapper,
@@ -25,22 +25,24 @@ class List extends React.Component {
   }
 
   componentDidMount() {
-    this.props.onGetPostList();
+    const { onGetPostList } = this.props;
+    onGetPostList();
   }
 
   getPostList() {
-    const { onDismissPost, onExpandPost } = this.props;
+    const { onDismissPost, onExpandPost, posts } = this.props;
 
-    return this.props.posts.map(post =>
+    return posts.map((post) => (
       <Post
-        post={ post.data }
-        key={ post.data.id }
-        onDismissPost={ onDismissPost }
-        onExpandPost={ onExpandPost }
-      />);
+        post={post.data}
+        key={post.data.id}
+        onDismissPost={onDismissPost}
+        onExpandPost={onExpandPost}
+      />
+    ));
   }
 
-  handleScroll = (e) => {
+  handleScroll(e) {
     const { isLoading, onGetPostList } = this.props;
     const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
 
@@ -50,7 +52,9 @@ class List extends React.Component {
   }
 
   render() {
-    const { onDismissAll, isLoading, posts, onToggleList, isListOpen } = this.props;
+    const {
+      onDismissAll, isLoading, posts, onToggleList, isListOpen,
+    } = this.props;
 
     return (
       <StyledListWrapper isListOpen={isListOpen}>
@@ -60,19 +64,24 @@ class List extends React.Component {
         </StyledListTitle>
         <StyledPostsContainer>
           {
-            isLoading && posts.length === 0 ?
-            <CircularProgress />
-            : <StyledScrollable onScroll={this.handleScroll}>
-                { this.getPostList() }
-                { isLoading && posts.length ? <StyledLoadingMore><CircularProgress /></StyledLoadingMore> : null }
-              </StyledScrollable>
+            isLoading && posts.length === 0
+              ? <CircularProgress />
+              : (
+                <StyledScrollable onScroll={this.handleScroll}>
+                  { this.getPostList() }
+                  {
+                    isLoading && posts.length
+                      ? <StyledLoadingMore><CircularProgress /></StyledLoadingMore> : null
+                  }
+                </StyledScrollable>
+              )
           }
         </StyledPostsContainer>
-        <StyledDismissButton onClick={ onDismissAll }>{ strings.DISMISS_ALL }</StyledDismissButton>
+        <StyledDismissButton onClick={onDismissAll}>{ strings.DISMISS_ALL }</StyledDismissButton>
       </StyledListWrapper>
     );
-  };
-};
+  }
+}
 
 List.propTypes = {
   posts: PropTypes.arrayOf(PropTypes.oneOfType([PostShape, EmptyShape])),
@@ -80,7 +89,14 @@ List.propTypes = {
   onDismissPost: PropTypes.func.isRequired,
   onExpandPost: PropTypes.func.isRequired,
   onDismissAll: PropTypes.func.isRequired,
+  onToggleList: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
+  isListOpen: PropTypes.bool,
+};
+
+List.defaultProps = {
+  posts: [],
+  isListOpen: false,
 };
 
 export default List;

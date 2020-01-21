@@ -6,7 +6,7 @@ import {
   expandPost,
   dismissAll,
   toggleList,
-} from "../../actions";
+} from '../../actions';
 
 const actions = {
   onGetPostList: getPostList,

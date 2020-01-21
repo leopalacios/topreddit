@@ -10,14 +10,14 @@ const DEFAULT_STATE = {
 export default handleActions(
   {
     POSTS_RESPONSE: (state, { payload }) => {
-      const previousPosts = [ ...state.posts ];
+      const previousPosts = [...state.posts];
       const posts = (payload.data.data.children || [])
-        .map(post => ({
+        .map((post) => ({
           ...post,
           data: {
             ...post.data,
             is_read: false,
-          } ,
+          },
         }));
 
       return ({
@@ -27,8 +27,8 @@ export default handleActions(
       });
     },
     EXPAND_POST: (state, { payload: { id } }) => {
-      const updatedPostIndex = state.posts.findIndex(post => post.data.id === id);
-      const updatedPosts = [ ...state.posts ];
+      const updatedPostIndex = state.posts.findIndex((post) => post.data.id === id);
+      const updatedPosts = [...state.posts];
 
       if (updatedPostIndex !== -1) {
         updatedPosts[updatedPostIndex].data.is_read = true;
@@ -41,8 +41,8 @@ export default handleActions(
       });
     },
     DISMISS_POST: (state, { payload: { id } }) => {
-      const updatedPostIndex = state.posts.findIndex(post => post.data.id === id);
-      const updatedPosts = [ ...state.posts ];
+      const updatedPostIndex = state.posts.findIndex((post) => post.data.id === id);
+      const updatedPosts = [...state.posts];
 
       if (updatedPostIndex !== -1) {
         updatedPosts.splice(updatedPostIndex, 1);
