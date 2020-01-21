@@ -2,6 +2,21 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Demo at https://topreddit.herokuapp.com/
+
+## Technologies
+
+- Jslint was configured based on Airbnb Linting rules https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb
+
+- Components were build using container/presentational pattern https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0
+
+- Redux was used for state managment
+
+- Unit tests stack is based on Jest / Enzyme (code coverage is around %50 due to time constraints)
+
+- Styled-components library is used to integrate css as testeable react components.
+
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -18,6 +33,14 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `yarn run lint`
+
+Runs linter
+
+### `yarn run lint:fix`
+
+Runs linter woth --fix mode
 
 ### `yarn build`
 
