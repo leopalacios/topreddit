@@ -71,6 +71,7 @@ export const StyledReadPostIcon = styled.div`
 
 export const StyledPostContainer = styled.div`
   padding: ${ SIZES.XS };
+  transition: transform 500ms ease-in;
 `;
 
 export const StyledThumbnail = styled.img`

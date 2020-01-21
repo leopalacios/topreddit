@@ -5,6 +5,7 @@ import {
   dismissPost,
   expandPost,
   dismissAll,
+  toggleList,
 } from "../../actions";
 
 const actions = {
@@ -12,14 +13,16 @@ const actions = {
   onDismissPost: dismissPost,
   onExpandPost: expandPost,
   onDismissAll: dismissAll,
+  onToggleList: toggleList,
 };
 
 const mapStateToProps = (state) => {
-  const { posts, isLoading } = state.feed;
+  const { posts, isLoading, isListOpen } = state.feed;
 
   return {
     posts,
-    isLoading
+    isLoading,
+    isListOpen,
   };
 };
 

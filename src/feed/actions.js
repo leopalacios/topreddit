@@ -11,6 +11,8 @@ export const postsResponse = createAction('POSTS_RESPONSE', data => ({ data }));
 
 export const postsRequest = createAction('POSTS_REQUEST', () => {});
 
+export const toggleList = createAction('TOGGLE_LIST', () => {});
+
 export const getPostList = () => (dispatch) => {
   dispatch(postsRequest());
 

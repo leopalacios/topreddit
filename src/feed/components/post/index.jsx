@@ -20,6 +20,9 @@ import {
 } from './styled';
 
 const ELLIPSIS_THRESHOLD = 100;
+const POST_ANIMATION_CLASS = 'post';
+const POST_FADEOUT_CLASS = 'postHide';
+const ANIMATION_DELAY = 400;
 
 const Post = ({ post, onDismissPost, onExpandPost }) => {
   const {
@@ -35,25 +38,30 @@ const Post = ({ post, onDismissPost, onExpandPost }) => {
   const postTime = moment.unix(created_utc).fromNow();
   const ellipsedText = title.length > ELLIPSIS_THRESHOLD ? title.substring(0,ELLIPSIS_THRESHOLD - 1) + "..." : title;
 
+  const dismissPostsAndAnimate = (e) => {
+    e.currentTarget.closest(`.${POST_ANIMATION_CLASS}`).classList.add(POST_FADEOUT_CLASS);
+    setTimeout(() => onDismissPost(id), ANIMATION_DELAY);
+  };
+
   return (
-    <StyledPostContainer>
+    <StyledPostContainer className={ POST_ANIMATION_CLASS }>
       <StyledPostTitle>
         { !is_read && <StyledReadPostIcon /> }
         <StyledAuthor>{ author }</StyledAuthor>
         { postTime }
       </StyledPostTitle>
       <StyledPostBody onClick={() => onExpandPost(id)}>
-        { thumbnail && <StyledThumbnail src={thumbnail} /> }
+        { thumbnail && <StyledThumbnail src={ thumbnail } /> }
         <StyledCommentsSection>
           <StyledPostListText>{ ellipsedText }</StyledPostListText>
           <StyledNextIcon />
         </StyledCommentsSection>
       </StyledPostBody>
       <StyledPostFooter>
-        <StyledDismissPost onClick={() => onDismissPost(id)}>
+        <StyledDismissPost onClick={(e) => dismissPostsAndAnimate(e)}>
           <StyledCloseIcon />{strings.DISMISS_POST }
         </StyledDismissPost>
-        <StyledComments>{ num_comments } {strings.COMMENTS }</StyledComments>
+        <StyledComments>{ num_comments } { strings.COMMENTS }</StyledComments>
       </StyledPostFooter>
     </StyledPostContainer>
   );

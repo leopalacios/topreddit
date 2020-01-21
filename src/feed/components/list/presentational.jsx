@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import ListIcon from '@material-ui/icons/List';
 import * as strings from './strings';
 import { PostShape, EmptyShape} from '../../propTypes';
 import Post from '../post';
@@ -12,6 +13,7 @@ import {
   StyledPostsContainer,
   StyledScrollable,
   StyledLoadingMore,
+  StyledListIconContainer,
 } from './styled';
 
 class List extends React.Component {
@@ -48,10 +50,11 @@ class List extends React.Component {
   }
 
   render() {
-    const { onDismissAll, isLoading, posts } = this.props;
+    const { onDismissAll, isLoading, posts, onToggleList, isListOpen } = this.props;
 
     return (
-      <StyledListWrapper>
+      <StyledListWrapper isListOpen={isListOpen}>
+        <StyledListIconContainer onClick={onToggleList}><ListIcon /></StyledListIconContainer>
         <StyledListTitle>
           <StyledTitle>{ strings.LIST_TITLE }</StyledTitle>
         </StyledListTitle>

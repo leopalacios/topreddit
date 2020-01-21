@@ -4,6 +4,7 @@ const DEFAULT_STATE = {
   posts: [],
   selectedPost: '',
   isLoading: false,
+  isListOpen: false,
 };
 
 export default handleActions(
@@ -58,6 +59,10 @@ export default handleActions(
     POSTS_REQUEST: (state) => ({
       ...state,
       isLoading: true,
+    }),
+    TOGGLE_LIST: (state) => ({
+      ...state,
+      isListOpen: !state.isListOpen,
     }),
   },
   DEFAULT_STATE,

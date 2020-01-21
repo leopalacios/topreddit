@@ -19,3 +19,7 @@ code {
   display: flex;
   flex: 1;
 }
+
+.postHide {
+  transform: translateX(-150%);
+}

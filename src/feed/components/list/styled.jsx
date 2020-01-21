@@ -1,14 +1,23 @@
 import styled from 'styled-components';
-import { COLORS, SIZES, FONT_SIZES } from '../../../utils/css-constants';
+import { COLORS, SIZES, FONT_SIZES, DEVICES } from '../../../utils/css-constants';
 
 export const StyledListWrapper = styled.div`
-  width: 400px;
+  width: 250px;
+  min-width: 250px;
   background-color: ${ COLORS.BLACK };
   color: ${ COLORS.WHITE };
   flex-grow: 1;
   height: 100%;
   display: flex;
   flex-direction: column;
+  position: absolute;
+  transition: transform 500ms ease-in;
+  transform: translateX(${props => (props.isListOpen ? '0' : '-100')}%);
+  @media ${DEVICES.tablet} {
+     position: relative;
+     transform: translateX(0);
+     width: 400px;
+  }
 `;
 
 export const StyledListTitle = styled.div`
@@ -50,4 +59,14 @@ export const StyledScrollable = styled.div`
 
 export const StyledLoadingMore = styled.div`
   text-align: center;
+`;
+
+export const StyledListIconContainer = styled.div`
+  position: absolute;
+  right: 0;
+  background-color: ${COLORS.BLACK};
+  transform: translateX(100%);
+  @media ${DEVICES.tablet} {
+     display: none;
+  }
 `;

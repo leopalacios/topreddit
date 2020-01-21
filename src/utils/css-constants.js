@@ -11,6 +11,8 @@ export const SIZES = {
   S: '12px',
   M: '16px',
   L: '20px',
+  XL: '24px',
+  XXL: '28px',
 };
 
 export const COLORS = {
