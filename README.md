@@ -4,6 +4,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Demo at https://topreddit.herokuapp.com/
 
+### Desktop version
+
+![Desktop](testReddit.gif)
+
+### Mobile version
+
+![Mobile](testRedditmobile.gif)
+
 ## Technologies
 
 - Jslint was configured based on Airbnb Linting rules https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb
@@ -15,6 +23,8 @@ Demo at https://topreddit.herokuapp.com/
 - Unit tests stack is based on Jest / Enzyme (code coverage is around %50 due to time constraints)
 
 - Styled-components library is used to integrate css as testeable react components.
+
+- Pagination was implemented as an infinite scroll when reaching the list bottom.
 
 
 ## Available Scripts
